@@ -424,6 +424,9 @@ MonoBehaviour:
   mapHeight: 100
   scale: 2.43
   autoUpdate: 1
+  octaves: 6
+  persistance: 0.42
+  lacunarity: 1.49
 --- !u!1 &1217910594
 GameObject:
   m_ObjectHideFlags: 0
