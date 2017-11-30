@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeshGenerator : MonoBehaviour {
-    public static MeshData GenerateTerrainMesh(float [,] heightMap)
+    public static MeshData GenerateTerrainMesh(float [,] heightMap, float heightMultiplier)
     {
+        
         int width = heightMap.GetLength(0);
         int height = heightMap.GetLength(1);
         float topLeftX = (width - 1) / -2f;
@@ -14,15 +15,19 @@ public class MeshGenerator : MonoBehaviour {
         MeshData meshData = new MeshData(width, height);
         for (int y = 0; y < height; y++)
         {
+            
             for (int x = 0; x < width; x++)
             {
-                meshData.vertices[vertexIndex] = new Vector3(topLeftX + x, heightMap[x, y], topLeftZ - y);
+            
+                meshData.vertices[vertexIndex] = new Vector3(topLeftX + x, heightMap[x, y]*heightMultiplier, topLeftZ - y);
                 meshData.uvs[vertexIndex] = new Vector2(x /(float)width, y / (float)height);
                 if(y<height-1 && x < width - 1)
                 {
+                    //Debug.Log("GeneratedMesh");
                     meshData.AddTriangle(vertexIndex, vertexIndex + width + 1, vertexIndex + width);
-                    //meshData.AddTriangle(vertexIndex + width + 1, vertexIndex, vertexIndex+1);
-                    meshData.AddTriangle(vertexIndex, vertexIndex + 1, vertexIndex + width + 1);
+                    meshData.AddTriangle(vertexIndex + width + 1, vertexIndex, vertexIndex+1);
+                    //meshData.AddTriangle(vertexIndex, vertexIndex + 1, vertexIndex + width + 1);
+
                 }
                 vertexIndex++;
             }

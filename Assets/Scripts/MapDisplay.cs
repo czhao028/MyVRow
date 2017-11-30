@@ -17,5 +17,7 @@ public class MapDisplay : MonoBehaviour {
     {
         meshFilter.sharedMesh = meshData.CreateMesh();
         meshRenderer.sharedMaterial.mainTexture = texture;
+        //meshRenderer.transform.localScale = new Vector3(texture.width, 1, texture.height);
+        Debug.Log("DrewMesh");
     }
 }
