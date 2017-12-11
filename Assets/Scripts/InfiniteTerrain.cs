@@ -45,11 +45,22 @@ public class InfiniteTerrain : MonoBehaviour {
     {
         public GameObject plane;
         Vector2 position;
+        Bounds bounds;
+
         public TerrainChunk(Vector2 coordinates, int size)
         {
             position = coordinates * size;
-            plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            //plane.transform
+            bounds = new Bounds(position, Vector2.one * size);
+
+            Vector3 v3position = new Vector3(position.x, 0, position.y);
+            meshObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
+            meshObject.transform.position = v3position;
+            meshObject.transform.localscale = Vector3.one * size / 10f;
+
+        }
+        public void Update()
+        {
+            bounds.SqrDistance(//viewerDistance)
         }
     }
 
