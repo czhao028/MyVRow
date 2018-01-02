@@ -20,7 +20,10 @@ public class MeshGenerator : MonoBehaviour {
         {
             for (int x = 0; x < width; x+= meshSimplificationIncrement)
             {
-                meshData.vertices[vertexIndex] = new Vector3(topLeftX + x, heightCurve.Evaluate(heightMap[x, y])*heightMultiplier, topLeftZ - y);
+                lock (heightCurve)
+                {
+                    meshData.vertices[vertexIndex] = new Vector3(topLeftX + x, heightCurve.Evaluate(heightMap[x, y]) * heightMultiplier, topLeftZ - y);
+                }
                 meshData.uvs[vertexIndex] = new Vector2(x /(float)width, y / (float)height);
                 if(y<height-1 && x < width - 1)
                 {
