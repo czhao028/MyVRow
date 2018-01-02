@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: a24997903ff1eb440b8b1a899c3b4875
-timeCreated: 1512484278
+timeCreated: 1514905035
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - viewer: {instanceID: 0}
+  - mapMaterial: {fileID: 2100000, guid: 5324f39bf77a6e843bd8190a557397fb, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
