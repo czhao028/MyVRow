@@ -21,7 +21,10 @@ public class InfiniteTerrain : MonoBehaviour {
     void Start()
     {
         mapGenerator = FindObjectOfType<MapGenerator>();
+<<<<<<< HEAD
         maxViewDst = lodarray[lodarray.Length - 1].maxViewThreshold;
+=======
+>>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
         chunkSize = MapGenerator.mapChunkSize - 1;
         chunksVisibleInViewDst = Mathf.RoundToInt(maxViewDst / chunkSize);
 
@@ -58,7 +61,11 @@ public class InfiniteTerrain : MonoBehaviour {
                 }
                 else
                 {
+<<<<<<< HEAD
                     terrainChunkDictionary.Add(coord, new TerrainChunk(coord, chunkSize,transform,mapMaterial, lodarray));
+=======
+                    terrainChunkDictionary.Add(coord, new TerrainChunk(coord, chunkSize,transform,mapMaterial));
+>>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
                     //Debug.Log("DoesntContainKey");
                 }
             }
@@ -73,6 +80,7 @@ public class InfiniteTerrain : MonoBehaviour {
         MeshRenderer meshRenderer;
         MeshFilter meshFilter;
 
+<<<<<<< HEAD
         LODInfo[] lodarray;
         LODMesh[] lodmeshes;
 
@@ -82,6 +90,9 @@ public class InfiniteTerrain : MonoBehaviour {
         int previousLODIndex = -1;
 
         public TerrainChunk(Vector2 coordinates, int size, Transform parent, Material material, LODInfo[] lodarray)
+=======
+        public TerrainChunk(Vector2 coordinates, int size, Transform parent, Material material)
+>>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
         {
             this.lodarray = lodarray;
             position = coordinates * size;
@@ -90,26 +101,42 @@ public class InfiniteTerrain : MonoBehaviour {
             Vector3 v3position = new Vector3(position.x, 0, position.y);
             meshObject = new GameObject("Terrain Chunk");
             meshRenderer = meshObject.AddComponent<MeshRenderer>();
+<<<<<<< HEAD
             meshFilter = meshObject.AddComponent<MeshFilter>();
+=======
+            meshFilter =  meshObject.AddComponent<MeshFilter>();
+>>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
             meshRenderer.material = material;
 
             meshObject.transform.position = v3position;
             meshObject.transform.parent = parent;
             SetVisible(false);
 
+<<<<<<< HEAD
             lodmeshes = new LODMesh[lodarray.Length];
             for (int i = 0; i < lodmeshes.Length; i++)
             {
                 lodmeshes[i] = new LODMesh(lodarray[i].lod);
             }
 
+=======
+>>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
             mapGenerator.RequestMapData(OnMapDataReceived);
 
         }
         void OnMapDataReceived(MapData mapData)
         {
+<<<<<<< HEAD
             this.mapData = mapData;
             mapDataReceived = true;
+=======
+            mapGenerator.RequestMeshData(mapData, OnMeshDataReceived);
+        }
+
+        void OnMeshDataReceived(MeshData meshData)
+        {
+            meshFilter.mesh = meshData.CreateMesh();
+>>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
         }
 
         public void UpdateTerrainChunk()
