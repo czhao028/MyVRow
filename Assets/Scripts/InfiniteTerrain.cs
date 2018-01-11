@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InfiniteTerrain : MonoBehaviour {
 
-    public LODInfo[] lodarray;
+    public LODInfo[] lodinfos;
     public static float maxViewDst;
 
     public Transform viewer;
@@ -21,10 +21,9 @@ public class InfiniteTerrain : MonoBehaviour {
     void Start()
     {
         mapGenerator = FindObjectOfType<MapGenerator>();
-<<<<<<< HEAD
-        maxViewDst = lodarray[lodarray.Length - 1].maxViewThreshold;
-=======
->>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
+
+        maxViewDst = lodinfos[lodinfos.Length - 1].maxViewThreshold;
+
         chunkSize = MapGenerator.mapChunkSize - 1;
         chunksVisibleInViewDst = Mathf.RoundToInt(maxViewDst / chunkSize);
 
@@ -57,16 +56,14 @@ public class InfiniteTerrain : MonoBehaviour {
                     {
                         terrainChunksVisibleLastUpdate.Add(terrainChunkDictionary[coord]);
                     }
-                    //Debug.Log("ContainsKey");
+                    Debug.Log("ContainsKey");
                 }
                 else
                 {
-<<<<<<< HEAD
-                    terrainChunkDictionary.Add(coord, new TerrainChunk(coord, chunkSize,transform,mapMaterial, lodarray));
-=======
-                    terrainChunkDictionary.Add(coord, new TerrainChunk(coord, chunkSize,transform,mapMaterial));
->>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
-                    //Debug.Log("DoesntContainKey");
+
+                    terrainChunkDictionary.Add(coord, new TerrainChunk(coord, chunkSize,transform,mapMaterial, lodinfos));
+
+                    Debug.Log("DoesntContainKey");
                 }
             }
         }
@@ -80,84 +77,95 @@ public class InfiniteTerrain : MonoBehaviour {
         MeshRenderer meshRenderer;
         MeshFilter meshFilter;
 
-<<<<<<< HEAD
-        LODInfo[] lodarray;
+
+        LODInfo[] lodinfos;
         LODMesh[] lodmeshes;
 
         MapData mapData;
-        bool mapDataReceived = true;
+        bool mapDataReceived = false;
 
         int previousLODIndex = -1;
 
-        public TerrainChunk(Vector2 coordinates, int size, Transform parent, Material material, LODInfo[] lodarray)
-=======
-        public TerrainChunk(Vector2 coordinates, int size, Transform parent, Material material)
->>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
+        public TerrainChunk(Vector2 coordinates, int size, Transform parent, Material material, LODInfo[] lodinfos)
         {
-            this.lodarray = lodarray;
+            this.lodinfos = lodinfos;
             position = coordinates * size;
             bounds = new Bounds(position, Vector2.one * size);
 
             Vector3 v3position = new Vector3(position.x, 0, position.y);
             meshObject = new GameObject("Terrain Chunk");
             meshRenderer = meshObject.AddComponent<MeshRenderer>();
-<<<<<<< HEAD
+
             meshFilter = meshObject.AddComponent<MeshFilter>();
-=======
-            meshFilter =  meshObject.AddComponent<MeshFilter>();
->>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
+
+
             meshRenderer.material = material;
 
             meshObject.transform.position = v3position;
             meshObject.transform.parent = parent;
             SetVisible(false);
 
-<<<<<<< HEAD
-            lodmeshes = new LODMesh[lodarray.Length];
+
+            lodmeshes = new LODMesh[lodinfos.Length];
             for (int i = 0; i < lodmeshes.Length; i++)
             {
-                lodmeshes[i] = new LODMesh(lodarray[i].lod);
+                lodmeshes[i] = new LODMesh(lodinfos[i].lod);
             }
 
-=======
->>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
             mapGenerator.RequestMapData(OnMapDataReceived);
 
         }
         void OnMapDataReceived(MapData mapData)
         {
-<<<<<<< HEAD
+
             this.mapData = mapData;
             mapDataReceived = true;
-=======
-            mapGenerator.RequestMeshData(mapData, OnMeshDataReceived);
+            //mapGenerator.RequestMeshData(mapData, OnMeshDataReceived);
         }
 
         void OnMeshDataReceived(MeshData meshData)
         {
             meshFilter.mesh = meshData.CreateMesh();
->>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
+
         }
 
         public void UpdateTerrainChunk()
         {
             //find distance from viewer to chunk; goes through LODInfo thresholds until it hits in range, index that respective mesh in LODMesh
-            float distancefromViewer = Mathf.Sqrt(bounds.SqrDistance(viewerPosition));
-            bool update = distancefromViewer <= maxViewDst;
-            if (update)
+            if (mapDataReceived)
             {
-                int counter = 0;
-                while(distancefromViewer > lodarray[counter].maxViewThreshold)
+                float distancefromViewer = Mathf.Sqrt(bounds.SqrDistance(viewerPosition));
+                bool update = distancefromViewer <= maxViewDst;
+                if (update)
                 {
-                    counter++;
+                    int counter = 0;
+                    while (distancefromViewer > lodinfos[counter].maxViewThreshold)
+                    {
+                        counter++;
+                    }
+                    if (counter != previousLODIndex) //AND lodmesh[counter].hasMesh == False 
+                    {
+                        LODMesh lodmesh = lodmeshes[counter];
+                        if (lodmesh.hasMesh)
+                        {
+                            previousLODIndex = counter;
+                            meshFilter.mesh = lodmesh.mesh;
+                        }
+                        else if (!lodmesh.hasRequestedMesh)
+                        {
+
+                            lodmesh.RequestMesh(this.mapData);
+                        }
+                        
+
+                        //the mesh = lodmeshes[counter].RequestMesh(this.mapData);
+
+                        //DO SOMETHING WITH mesh, already in LODMesh object
+                    }
+                    SetVisible(update);
                 }
-                if(counter != previousLODIndex)
-                {
-                    Mesh mesh = lodmeshes[counter].RequestMesh(this.mapData);
-                }
-                //the mesh = lodmeshes[counter].RequestMesh(this.mapData);
             }
-            SetVisible(update);
+            
         }
         public void SetVisible(bool visible)
         {

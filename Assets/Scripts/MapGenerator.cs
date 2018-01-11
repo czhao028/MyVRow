@@ -11,11 +11,7 @@ public class MapGenerator : MonoBehaviour
 
     public const int mapChunkSize = 241;
     [Range(0, 6)]
-<<<<<<< HEAD
     public int editorPreviewLOD;
-=======
-    public int levelOfDetail;
->>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
 
     public float scale;
     public bool autoUpdate;
@@ -113,26 +109,6 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-=======
-    public void RequestMapData(Action<MapData> callback)
-    {
-        ThreadStart threadStart = delegate
-        {
-            MapDataThread(callback);
-        };
-        new Thread(threadStart).Start();
-    }
-    void MapDataThread(Action<MapData> callback)
-    {
-        MapData mapData = GenerateMap();
-        lock (mapDataQueue)
-        {
-            mapDataQueue.Enqueue(new MapThreadInfo<MapData>(callback, mapData));
-        }
-
-    }
-
     public void RequestMeshData(MapData mapData, Action<MeshData> callback)
     {
         ThreadStart threadStart = delegate
@@ -143,7 +119,7 @@ public class MapGenerator : MonoBehaviour
     }
     void MeshDataThread(MapData mapData, Action<MeshData> callback)
     {
-        MeshData meshData = MeshGenerator.GenerateTerrainMesh(mapData.heightMap, meshHeightMultiplier, meshHeightCurve, levelOfDetail);
+        MeshData meshData = MeshGenerator.GenerateTerrainMesh(mapData.heightMap, meshHeightMultiplier, meshHeightCurve, editorPreviewLOD);
         lock (meshDataQueue)
         {
             meshDataQueue.Enqueue(new MapThreadInfo<MeshData>(callback, meshData));
@@ -151,28 +127,8 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        if (mapDataQueue.Count > 0)
-        {
-            for (int i = 0; i < mapDataQueue.Count; i++)
-            {
-                MapThreadInfo<MapData> next = mapDataQueue.Dequeue();
-                next.callback(next.parameter);
-            }
-        }
 
-        if (meshDataQueue.Count > 0)
-        {
-            for (int i = 0; i < meshDataQueue.Count; i++)
-            {
-                MapThreadInfo<MeshData> next = meshDataQueue.Dequeue();
-                next.callback(next.parameter);
-            }
-        }
-    }
 
->>>>>>> 56156329b687026873d0f6ecc9b76878d52e077d
     MapData GenerateMap()
     {
         float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, seed, scale, octaves, persistance, lacunarity, offset);
