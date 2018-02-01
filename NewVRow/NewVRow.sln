@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewVRow", "NewVRow.csproj", "{53AA2B34-6F6A-140E-E2F7-4A7809C83C0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewVRow.Editor", "NewVRow.Editor.csproj", "{95C6D583-148E-7E1E-002A-2D2C5714F270}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{53AA2B34-6F6A-140E-E2F7-4A7809C83C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53AA2B34-6F6A-140E-E2F7-4A7809C83C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53AA2B34-6F6A-140E-E2F7-4A7809C83C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C6D583-148E-7E1E-002A-2D2C5714F270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C6D583-148E-7E1E-002A-2D2C5714F270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C6D583-148E-7E1E-002A-2D2C5714F270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C6D583-148E-7E1E-002A-2D2C5714F270}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -81,6 +81,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AllStarCharacterLibrary\Models\Particles\RayShot.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\AbilityClasses.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\ASCLBasicController.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\BasicHitCheck.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CamTarget.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CarCamera.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CharacterControllerCollCheck.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CharacterDemoController.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CharacterPhysicsController.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\Enemy.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\Hit.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\killParticle.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\Missile.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\MouseOrbit.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\RadialAngler.cs" />
+    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\RootMotionOff.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ApplicationManager.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ChangeColor.cs" />
@@ -93,6 +109,7 @@
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ScrollDetailTexture.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ShowSliderValue.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\TiltWindow.cs" />
+    <Compile Include="Assets\Scripts\PlayerMotor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Unity UI Sample\Fonts\Jupiter\LICENSE.txt" />
