@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour {
     private CharacterController controller;
-    //SUBSTITUTE speed for speed read in from the PM5 monitor
     public float speed;
-	// Use this for initialization
+    private Vector3 moveForward;
 	void Start () {
         controller = GetComponent<CharacterController>();
 	}
-	
-	// Update is called once per frame
 	void Update () {
-        controller.Move((Vector3.forward*speed) * Time.deltaTime);
+        moveForward = Vector3.zero;
+
+        moveForward.x = 0;
+        if (!controller.isGrounded)
+        {
+            moveForward.y = -0.5f;
+        }
+        moveForward.z = 1.0f * speed; //SUBSTITUTE speed for speed read in from the PM5 monitor
+        controller.Move(moveForward * Time.deltaTime);
         Debug.Log(controller.transform.position);
 	}
 }

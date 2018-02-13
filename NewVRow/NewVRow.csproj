@@ -109,6 +109,7 @@
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ScrollDetailTexture.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ShowSliderValue.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\TiltWindow.cs" />
+    <Compile Include="Assets\CameraMotor.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
   </ItemGroup>
   <ItemGroup>
