@@ -4,14 +4,14 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  productGUID: 88fcf2bf6e321b34ab8ed0ae8eb9c6c2
+  productGUID: 8ebcb4f2375a9734c8480cfe3cc69ea0
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: MyVRow
+  productName: NewVRow
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -508,14 +508,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: MyVRow
+  metroPackageName: NewVRow
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: MyVRow
+  metroApplicationDescription: NewVRow
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -590,8 +590,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 3c2123c0-8486-4fb0-8b14-40ab284a753b
-  projectName: MyVRow
+  cloudProjectId: a7d546a9-dcf6-4e5e-a455-86d67a5397a3
+  projectName: NewVRow
   organizationId: czhao028
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
