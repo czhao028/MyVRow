@@ -51,7 +51,7 @@ public class Hit : MonoBehaviour
 			transform.localScale = new Vector3 (1.0f,1.0f,1.0f) * (0.01f + currentTime) * 3.0f;
 		}
 		transform.position += (Vector3.up * Time.deltaTime * speed);
-		transform.LookAt(Camera.main.transform.position);
+		transform.LookAt(UnityEngine.Camera.main.transform.position);
 		
 		yellow.text = text;
 		black.text =text;

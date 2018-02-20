@@ -50,7 +50,7 @@ public class Missile : MonoBehaviour
 			Hit tmHit = tm.GetComponent<Hit>();
 			tmHit.text = damage.ToString();
 			Transform ph = (Transform) Instantiate(particleHit , (nearest.gameObject.transform.position + new Vector3(0.0f,1.5f,0.0f)),Quaternion.identity);
-			ph.transform.LookAt(Camera.main.transform.position);
+			ph.transform.LookAt(UnityEngine.Camera.main.transform.position);
 			ph.transform.position += (ph.transform.forward * 2.0f);
 			ph.gameObject.SetActive(true);
 			Destroy(gameObject);

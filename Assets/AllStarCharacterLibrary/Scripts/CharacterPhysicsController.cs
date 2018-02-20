@@ -57,7 +57,7 @@ public class CharacterPhysicsController : MonoBehaviour
 			// UI goal	
 			if(Input.GetMouseButton(0))//is the left mouse button being clicked?
 			{
-				ray = Camera.main.ScreenPointToRay (Input.mousePosition);//get a ray that goes from the camera -> "THROUGH" the mouse pointer - > and out into the scene
+				ray = UnityEngine.Camera.main.ScreenPointToRay (Input.mousePosition);//get a ray that goes from the camera -> "THROUGH" the mouse pointer - > and out into the scene
 				if(floorPlane.GetComponent<Collider>().Raycast(ray, out hit, 500.0f)) //check to see if that ray hits our "floor"												
 				{
 					movementTargetPosition = hit.point;//mark it where it hit
@@ -126,7 +126,7 @@ public class CharacterPhysicsController : MonoBehaviour
 				if(rightButtonDown != true)// was it previously down? if so we are already using "USE" bailout (we don't want to repeat attacks 800 times a second...just once per press please
 				{// RUNGY addin enemy collider "test for nearest hit" here, they need to actually take precednce over the ground
 					
-					ray = Camera.main.ScreenPointToRay (Input.mousePosition);// make a ray based on the camera and mouse pointer
+					ray = UnityEngine.Camera.main.ScreenPointToRay (Input.mousePosition);// make a ray based on the camera and mouse pointer
 					if(floorPlane.GetComponent<Collider>().Raycast(ray, out hit, 500.0f)) 												
 					{
 						movementTargetPosition = transform.position; //we are attacking so lock our position to where we are
@@ -182,7 +182,7 @@ public class CharacterPhysicsController : MonoBehaviour
 
 		if ( Input.GetKey(KeyCode.Space) && !jumping)//if we are not using the ALT key(camera control)...
 		{
-			ray = Camera.main.ScreenPointToRay (Input.mousePosition);// make a ray based on the camera and mouse pointer
+			ray = UnityEngine.Camera.main.ScreenPointToRay (Input.mousePosition);// make a ray based on the camera and mouse pointer
 			if(floorPlane.GetComponent<Collider>().Raycast(ray, out hit, 500.0f)) 												
 			{
 				verticalVelocity = 3.0f * (Vector3.Distance(transform.position,hit.point)+1.0f);

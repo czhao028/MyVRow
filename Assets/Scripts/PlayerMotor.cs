@@ -25,7 +25,7 @@ public class PlayerMotor : MonoBehaviour {
         }
         moveForward.z = speed; //forward back; SUBSTITUTE speed for speed read in from the PM5 monitor
         controller.Move(moveForward * Time.deltaTime);
-        Debug.Log(controller.transform.position);
+        //Debug.Log(controller.transform.position);
  
 	}
 }

@@ -108,7 +108,7 @@ public class ASCLBasicController : MonoBehaviour
 		}
 		
 		RaycastHit hit;// RayCastHits hold very useful info such as hitnormal and location
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);//get a ray that goes from the camera -> "THROUGH" the mouse pointer - > and out into the scene
+		Ray ray = UnityEngine.Camera.main.ScreenPointToRay (Input.mousePosition);//get a ray that goes from the camera -> "THROUGH" the mouse pointer - > and out into the scene
 		
 		if ( ! Input.GetKey(KeyCode.LeftAlt))//if we are not using the ALT key(camera control)...
 		{
@@ -291,7 +291,7 @@ public class ASCLBasicController : MonoBehaviour
 					Hit tmHit = tm.GetComponent<Hit>();
 					tmHit.text = ac.damage.ToString();
 					Transform ph = (Transform) Instantiate(particleHit , (en.gameObject.transform.position + new Vector3(0.0f,1.5f,0.0f)),Quaternion.identity);
-					ph.transform.LookAt(Camera.main.transform.position);
+					ph.transform.LookAt(UnityEngine.Camera.main.transform.position);
 					ph.transform.position += (ph.transform.forward * 2.0f);
 					ph.gameObject.SetActive(true);
 				}

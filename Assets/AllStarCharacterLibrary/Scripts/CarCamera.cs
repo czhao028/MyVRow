@@ -32,7 +32,7 @@ public class CarCamera : MonoBehaviour
 	void LateUpdate()
 	{
 		float speedFactor = Mathf.Clamp01(target.root.GetComponent<Rigidbody>().velocity.magnitude / 70.0f);
-		GetComponent<Camera>().fieldOfView = Mathf.Lerp(55, 72, speedFactor);
+		UnityEngine.Camera.main.fieldOfView = Mathf.Lerp(55, 72, speedFactor);
 		float currentDistance = Mathf.Lerp(17.5f, 16.5f, speedFactor);
 		
 		currentVelocity = currentVelocity.normalized;

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMotor : MonoBehaviour {
+public class CameraMotor : MonoBehaviour
+{
     private Transform playerTransform;
     private Vector3 offset;
     private Vector3 moveVector;
@@ -11,17 +12,19 @@ public class CameraMotor : MonoBehaviour {
     private float transition = 0.0f;
 
     private Vector3 animationOffset = new Vector3(0, 5, 5);
-    void Start () {
+    void Start()
+    {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         offset = transform.position - playerTransform.position;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         moveVector = playerTransform.position + offset;
         moveVector.x = 0;
         //moveVector.y = Mathf.Clamp(moveVector.y, 3, 5);
-        if(transition >= 1.0f)
+        if (transition >= 1.0f)
         {
             transform.position = moveVector;
         }
@@ -31,7 +34,7 @@ public class CameraMotor : MonoBehaviour {
             transition += Time.deltaTime * (1 / animationDuration);
             transform.LookAt(playerTransform.position);
         }
-        
-        
-	}
+
+
+    }
 }
