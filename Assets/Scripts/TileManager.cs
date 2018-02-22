@@ -21,7 +21,7 @@ public class TileManager : MonoBehaviour {
       
             foreach(Transform child in prefabs[i].transform)
             {
-                Debug.Log(child.GetComponent<Collider>().bounds.size);
+                Debug.Log(child.transform.GetChild(0).collider.bounds.size);
             }
             
         }
