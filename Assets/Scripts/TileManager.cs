@@ -13,16 +13,18 @@ public class TileManager : MonoBehaviour {
     private float safeZone = 15.0f;
 
     private Dictionary<GameObject, float> objectZComponents;
+    private Queue<GameObject> queue;
 
 	void Start () {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         objectZComponents = new Dictionary<GameObject, float>();
+        queue = new Queue<GameObject>();
         upStairsUpperBound = Mathf.FloorToInt((float)prefabs.Length / 2.0f);
         Debug.Log(upStairsUpperBound);
         for (int i = 0; i < prefabs.Length; i++)
         {
             Vector3 prefabSize = prefabs[i].transform.GetChild(0).GetComponent<Renderer>().bounds.size;
-            objectZComponents.Add(prefabs[i], prefabSize.z - 1f);
+            objectZComponents.Add(prefabs[i], prefabSize.z);
         }
         for (int i = 0; i < numberTilesScreen; i++)
         {
@@ -30,7 +32,6 @@ public class TileManager : MonoBehaviour {
         }
     }
 	
-	// Update is called once per frame
 	void Update () {
         if(safeZone + spawnZ - (avgLength*numberTilesScreen) < playerTransform.position.z)
         {
@@ -46,16 +47,41 @@ public class TileManager : MonoBehaviour {
 
     private void SpawnTile(int prefabIndex = 0)
     {
+        if(queue.Count == 0)
+        {
+            SpawnTileHelper(prefabIndex);
+        }
+        else
+        {
+            //INSERT PLAN HERE
+        }
+        
+    }
+
+    private void SpawnTileHelper(int prefabIndex = 0)
+    {
         int Counter = prefabIndex;
         GameObject go = Instantiate(prefabs[Counter]) as GameObject;
         go.transform.SetParent(this.transform);
-        go.transform.position = Vector3.forward * spawnZ;
-        spawnZ += objectZComponents[prefabs[Counter]];
+        go.transform.position = (Vector3.forward * spawnZ);
+        spawnZ += objectZComponents[prefabs[Counter]] - 1f;
     }
     private void DeleteChild()
     {
         Destroy(transform.GetChild(0).gameObject);
     }
+    /***
+     * Plan:
+     * 1. If Queue NOT EMPTY: pop the first one off 
+     * 2. If Queue EMPTY:
+     *  a. while(True): Generate a random number
+     *      i. if number == 0: spawn Tile
+     *  b. Get the GameObject, prefabs[Random]
+     *      i. if the name of GameObject contains Up - spawn Tile functions, add Random.Range(0,20) of prefabs[Random+1] to Queue & prefabs[Random+2]
+     *      ii. else: continue
+     * 
+     * 
+     ***/
 }
 
 //public class TileManager : MonoBehaviour
