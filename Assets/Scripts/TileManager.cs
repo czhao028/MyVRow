@@ -7,9 +7,9 @@ public class TileManager : MonoBehaviour {
     public GameObject[] prefabs;
     private int upStairsUpperBound;
     private Transform playerTransform;
-    private float spawnZ = 10.0f;
-    private int numberTilesScreen = 50;
-    private float avgLength = 5.0f;
+    private float spawnZ = -20.0f;
+    private int numberTilesScreen = 30;
+    private float avgLength = 3.0f;
     private float safeZone = 15.0f;
 
     private Dictionary<GameObject, float> objectZComponents;
@@ -39,10 +39,13 @@ public class TileManager : MonoBehaviour {
 	void Update () {
         if(safeZone + spawnZ - (avgLength*numberTilesScreen) < playerTransform.position.z)
         {
-            SpawnTile();
+            SpawnTile(); 
+        }
+        if (playerTransform.position.z - transform.GetChild(0).transform.position.z > safeZone)
+        {
             DeleteChild();
         }
-	}
+    }
 
     private void SpawnTile()
     {
@@ -53,13 +56,16 @@ public class TileManager : MonoBehaviour {
         else
         {
             int index = upIndexes[Random.Range(0, upIndexes.Length)];
-            Debug.Log(index + "UpIndex");
             SpawnTileHelper(index);
-            for (int i = 0; i < Random.Range(5, 20); i++) { queue.Enqueue(index + 1); Debug.Log("Queued" + index + 1); }
-        
-            queue.Enqueue(index+2);
+            if(index != 0)
+            {
+                for (int i = 0; i < Random.Range(5, 20); i++) { queue.Enqueue(index + 1); Debug.Log("Queued" + (index + 1)); }
+                queue.Enqueue(index + 2);
+                queue.Enqueue(0);
+            }
+
         }
-        
+
     }
 
     private void SpawnTileHelper(int prefabIndex = 0)
@@ -68,7 +74,8 @@ public class TileManager : MonoBehaviour {
         GameObject go = Instantiate(prefabs[Counter]) as GameObject;
         go.transform.SetParent(this.transform);
         go.transform.position = (Vector3.forward * spawnZ);
-        spawnZ += objectZComponents[prefabs[Counter]] - 1f;
+        Debug.Log("SpawnZ" + spawnZ);
+        spawnZ += objectZComponents[prefabs[Counter]] - 1.5f;
     }
     private void DeleteChild()
     {

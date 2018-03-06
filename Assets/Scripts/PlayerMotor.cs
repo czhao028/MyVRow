@@ -21,7 +21,7 @@ public class PlayerMotor : MonoBehaviour {
         moveForward.x = Input.GetAxis("Horizontal") * speed; //no left/right movement
         if (!controller.isGrounded)
         {
-            moveForward.y = -0.5f; //up down
+            moveForward += Physics.gravity; //up down
         }
         moveForward.z = speed; //forward back; SUBSTITUTE speed for speed read in from the PM5 monitor
         controller.Move(moveForward * Time.deltaTime);
