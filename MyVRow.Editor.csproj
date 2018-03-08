@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AllStarCharacterLibrary\Scripts\Editor\TurnOffRenderers.cs" />
+    <Compile Include="Assets\Assets\UITween\Editor\EditorUITween.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Unity UI Sample\Fonts\Jupiter\LICENSE.txt" />

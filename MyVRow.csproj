@@ -97,6 +97,13 @@
     <Compile Include="Assets\AllStarCharacterLibrary\Scripts\MouseOrbit.cs" />
     <Compile Include="Assets\AllStarCharacterLibrary\Scripts\RadialAngler.cs" />
     <Compile Include="Assets\AllStarCharacterLibrary\Scripts\RootMotionOff.cs" />
+    <Compile Include="Assets\Assets\UITween\Prefabs\Click Effect Pref\ClickedWaveAnimation.cs" />
+    <Compile Include="Assets\Assets\UITween\ScenesExamplesScripts\ActivateOnEnable.cs" />
+    <Compile Include="Assets\Assets\UITween\ScenesExamplesScripts\CreateAnimImage.cs" />
+    <Compile Include="Assets\Assets\UITween\ScenesExamplesScripts\FollowClick.cs" />
+    <Compile Include="Assets\Assets\UITween\Scripts\EasyTween.cs" />
+    <Compile Include="Assets\Assets\UITween\Scripts\ReferencedFrom.cs" />
+    <Compile Include="Assets\Assets\UITween\Scripts\UITween.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ApplicationManager.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ChangeColor.cs" />
@@ -109,9 +116,11 @@
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ScrollDetailTexture.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ShowSliderValue.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\TiltWindow.cs" />
+    <Compile Include="Assets\MonsterMotor.cs" />
     <Compile Include="Assets\Scripts\CameraMotor.cs" />
     <Compile Include="Assets\Scripts\CScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\TileManager.cs" />
   </ItemGroup>
   <ItemGroup>

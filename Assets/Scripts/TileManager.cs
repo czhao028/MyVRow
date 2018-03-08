@@ -51,11 +51,16 @@ public class TileManager : MonoBehaviour {
     {
         if(queue.Count != 0)
         {
-            SpawnTileHelper(queue.Dequeue());
+            int randomInt = queue.Dequeue();
+            //Debug.Log(randomInt);
+            SpawnTileHelper(randomInt);
         }
         else
         {
-            int index = upIndexes[Random.Range(0, upIndexes.Length)];
+            int randInt = Random.Range(0, upIndexes.Length);
+            Debug.Log("Rand" + randInt);
+            int index = upIndexes[randInt];
+            
             SpawnTileHelper(index);
             if(index != 0)
             {
@@ -74,7 +79,7 @@ public class TileManager : MonoBehaviour {
         GameObject go = Instantiate(prefabs[Counter]) as GameObject;
         go.transform.SetParent(this.transform);
         go.transform.position = (Vector3.forward * spawnZ);
-        Debug.Log("SpawnZ" + spawnZ);
+        //Debug.Log("SpawnZ" + spawnZ);
         spawnZ += objectZComponents[prefabs[Counter]] - 1.5f;
     }
     private void DeleteChild()
