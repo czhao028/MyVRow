@@ -574,6 +574,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterSpeed: 5
   monsterMove: {x: 0, y: 0, z: 0}
+  deathClip: {fileID: 7400030, guid: dfa9dd007e9fedc4b869bfd63bb3b284, type: 3}
+  walkClip: {fileID: 7400002, guid: dfa9dd007e9fedc4b869bfd63bb3b284, type: 3}
+  anim: {fileID: 0}
+--- !u!143 &990623100
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 990623096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 3.13
+  m_Radius: 0.86
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.47, z: 0.18}
 --- !u!4 &1244891913 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4437052854278794, guid: 8f97efbcc80aca143a47cf1194d382d2,
