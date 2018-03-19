@@ -33,7 +33,6 @@ public class MonsterMotor : MonoBehaviour {
         // anim.Play("creature1Run");
         //anim.speed = monsterSpeed;
         //anim.AddClip(walkClip, "WalkClip");
-        anim.velocity = monsterMove;
 	}
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
