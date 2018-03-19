@@ -10,12 +10,13 @@ public class MonsterMotor : MonoBehaviour {
     private bool isDead = false;
     public AnimationClip deathClip;
     public AnimationClip walkClip;
-    public Animation anim;
+    public Animator anim;
 
     void Start () {
         //PlayerMotor playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMotor>();
         //monsterSpeed = playerTransform.speed;
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -29,7 +30,10 @@ public class MonsterMotor : MonoBehaviour {
             monsterMove += Physics.gravity; //up down
         }
         monsterMove.z = monsterSpeed;
-        controller.Move(monsterMove);
+        // anim.Play("creature1Run");
+        //anim.speed = monsterSpeed;
+        //anim.AddClip(walkClip, "WalkClip");
+        anim.velocity = monsterMove;
 	}
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
