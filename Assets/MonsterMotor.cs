@@ -17,6 +17,7 @@ public class MonsterMotor : MonoBehaviour {
         //monsterSpeed = playerTransform.speed;
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        monsterMove = new Vector3(0, 0, monsterSpeed);
     }
 	
 	// Update is called once per frame
@@ -25,13 +26,14 @@ public class MonsterMotor : MonoBehaviour {
         {
             return;
         }
-        if (!controller.isGrounded)
-        {
-            monsterMove += Physics.gravity; //up down
-        }
-        monsterMove.z = monsterSpeed;
-        // anim.Play("creature1Run");
-        //anim.speed = monsterSpeed;
+        //if (!controller.isGrounded)
+        //{
+        //    monsterMove += Physics.gravity; //up down
+        //}
+        transform.position += (monsterMove * Time.deltaTime);
+        anim.Play("creature1Run");
+        Debug.Log("PlayedCreatureClip");
+        anim.speed = 5;
         //anim.AddClip(walkClip, "WalkClip");
 	}
 

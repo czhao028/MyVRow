@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c68392fea6ea9458e67da97c874e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterSpeed: 5
+  monsterSpeed: 10
   monsterMove: {x: 0, y: 0, z: 0}
   deathClip: {fileID: 7400030, guid: dfa9dd007e9fedc4b869bfd63bb3b284, type: 3}
   walkClip: {fileID: 7400002, guid: dfa9dd007e9fedc4b869bfd63bb3b284, type: 3}
