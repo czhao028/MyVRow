@@ -19,9 +19,19 @@ public class MonsterMotor : MonoBehaviour {
         anim = GetComponent<Animator>();
         monsterMove = new Vector3(0, 0, monsterSpeed);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void OnAnimatorMove()
+    {
+        if (anim)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.z += anim.GetFloat("Speed") * Time.deltaTime;
+            transform.position = newPosition;
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (isDead)
         {
             return;
@@ -30,12 +40,19 @@ public class MonsterMotor : MonoBehaviour {
         //{
         //    monsterMove += Physics.gravity; //up down
         //}
-        transform.position += (monsterMove * Time.deltaTime);
-        anim.Play("creature1Run");
-        Debug.Log("PlayedCreatureClip");
-        anim.speed = 5;
+        //transform.position += (monsterMove * Time.deltaTime);
+        //anim.Play("creature1walkforward");
+        //Debug.Log("PlayedCreatureClip");
+        //anim.speed = 5;
         //anim.AddClip(walkClip, "WalkClip");
-	}
+        anim.SetFloat("Speed", 1f);
+        Debug.Log(anim.GetFloat("Speed"));
+   
+        controller.Move(monsterMove * Time.deltaTime);
+
+        anim.Play("Run_Mech");
+        Debug.Log("PlayedCreatureClip");
+    }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {

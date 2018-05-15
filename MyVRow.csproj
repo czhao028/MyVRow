@@ -116,17 +116,37 @@
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ScrollDetailTexture.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\ShowSliderValue.cs" />
     <Compile Include="Assets\Assets\Unity UI Sample\Scripts\TiltWindow.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\BLETestScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\BusyScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\Central\CentralNordicScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\Central\CentralPeripheralButtonScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\Central\CentralRFduinoScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\Central\CentralScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\Central\CentralTISensorTagScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\Peripheral\PeripheralScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\BluetoothLETest\TypeSelectionScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\MultipleLevels\DeviceObject.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\MultipleLevels\FoundDeviceListScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\MultipleLevels\Level1Script.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\MultipleLevels\Level2Script.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\ScannerTest\ScannedItemScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\ScannerTest\ScannerTestScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Example\SimpleTest\SimpleTest.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Plugins\BluetoothDeviceScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Plugins\BluetoothHardwareInterface.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Scripts\CameraMotor.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Scripts\CScript.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Scripts\PlayerMotor.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Scripts\Score.cs" />
+    <Compile Include="Assets\Bluetooth Plugin\Scripts\TileManager.cs" />
     <Compile Include="Assets\MonsterMotor.cs" />
-    <Compile Include="Assets\Scripts\CameraMotor.cs" />
-    <Compile Include="Assets\Scripts\CScript.cs" />
-    <Compile Include="Assets\Scripts\PlayerMotor.cs" />
-    <Compile Include="Assets\Scripts\Score.cs" />
-    <Compile Include="Assets\Scripts\TileManager.cs" />
+    <Compile Include="Assets\SpeedScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Unity UI Sample\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Assets\Unity UI Sample\Materials\UI-Default-No-Alpha.shader" />
     <None Include="Assets\Assets\Unity UI Sample\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+    <None Include="Assets\Bluetooth Plugin\Plugins\Android\AndroidManifest.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
