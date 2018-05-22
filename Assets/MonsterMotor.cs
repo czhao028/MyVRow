@@ -20,15 +20,17 @@ public class MonsterMotor : MonoBehaviour {
         monsterMove = new Vector3(0, 0, monsterSpeed);
     }
 
-    void OnAnimatorMove()
-    {
-        if (anim)
-        {
-            Vector3 newPosition = transform.position;
-            newPosition.z += anim.GetFloat("Speed") * Time.deltaTime;
-            transform.position = newPosition;
-        }
-    }
+    //void OnAnimatorMove()
+    //{
+    //    if (anim)
+    //    {
+    //        Vector3 newPosition = transform.position;
+    //        anim.Play("Walk Mec");
+    //        anim.SetFloat(Animator.StringToHash("VerticalMove"), 0.05f);
+    //        newPosition += new Vector3(0, 0, anim.GetFloat("VerticalMove"));
+    //        transform.position = newPosition;
+    //    }
+    //}
 
     // Update is called once per frame
     void Update () {
@@ -45,13 +47,18 @@ public class MonsterMotor : MonoBehaviour {
         //Debug.Log("PlayedCreatureClip");
         //anim.speed = 5;
         //anim.AddClip(walkClip, "WalkClip");
-        anim.SetFloat("Speed", 1f);
-        Debug.Log(anim.GetFloat("Speed"));
+        //anim.SetFloat("Speed", 1f);
+        //Debug.Log(anim.GetFloat("Speed"));
    
-        controller.Move(monsterMove * Time.deltaTime);
+        //controller.Move(monsterMove * Time.deltaTime);
+        Vector3 newPosition = transform.position;
+        anim.Play("Walk Mec");
+        anim.SetFloat(Animator.StringToHash("VerticalMove"), 0.05f);
+        newPosition += new Vector3(0, 0, anim.GetFloat("VerticalMove"));
+        transform.position = newPosition;
 
-        anim.Play("Run_Mech");
-        Debug.Log("PlayedCreatureClip");
+        //anim.Play("Run_Mech");
+        //Debug.Log("PlayedCreatureClip");
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
