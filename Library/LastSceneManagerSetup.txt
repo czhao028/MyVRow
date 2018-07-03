@@ -1,4 +1,1 @@
-sceneSetups:
-- path: Assets/Bluetooth Plugin/Scenes/Game Scene.unity
-  isLoaded: 1
-  isActive: 1
+sceneSetups: []
